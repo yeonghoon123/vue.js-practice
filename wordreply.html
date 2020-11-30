@@ -10,22 +10,30 @@
 
 <body>
     <div id="root">
-        <form v-on:submit="onSubmit">
-            <div>{{word}}</div>
-            <input type="text" v-model="value" ref="answer">
-            <input type="submit">
-            <div>{{result}}</div>
-        </form>
+        <word-reply />
     </div>
     <script>
-        const app = new Vue({
-            el: "#root",
-            data: {
-                word: "구절초",
-                value: "",
-                result: ""
-            },
-            methods: {
+
+        Vue.component('word-reply', {
+            template: `
+            <div>
+                <form v-on:submit="onSubmit">
+                    <div>{{word}}</div>
+                    <input type="text" v-model="value" ref="answer">
+                    <input type="submit">
+                     <div>{{result}}</div>
+                </form>
+            </div>
+            `
+            ,
+            data() {
+                return {
+                    word: "구절초",
+                    value: "",
+                    result: ""
+                }
+            }
+            , methods: {
                 onSubmit(e) {
                     e.preventDefault()
                     if (this.word[this.word.length - 1] === this.value[0]) {
@@ -40,6 +48,12 @@
                     }
                 }
             }
+        })
+    </script>
+
+    <script>
+        const app = new Vue({
+            el: "#root"
         })
     </script>
 </body>

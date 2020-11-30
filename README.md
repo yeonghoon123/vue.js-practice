@@ -121,8 +121,47 @@ const app = new Vue({
 <br>
 <br>
 
+# 컴포넌트로 변환하기
 
-
+```javascript
+        Vue.component('word-reply', {
+            template: `
+            <div>
+                <form v-on:submit="onSubmit">
+                    <div>{{word}}</div>
+                    <input type="text" v-model="value" ref="answer">
+                    <input type="submit">
+                     <div>{{result}}</div>
+                </form>
+            </div>
+            `
+            ,
+            data() {
+                return {
+                    word: "구절초",
+                    value: "",
+                    result: ""
+                }
+            }
+            , methods: {
+                onSubmit(e) {
+                    e.preventDefault()
+                    if (this.word[this.word.length - 1] === this.value[0]) {
+                        this.result = "정답!"
+                        this.word = this.value;
+                        this.value = "";
+                        this.$refs.answer.focus();
+                    } else {
+                        this.value = ""
+                        this.result = "땡!"
+                        this.$refs.answer.fucus();
+                    }
+                }
+            }
+        })
+```
+<br>
+<br>
 
 
 
