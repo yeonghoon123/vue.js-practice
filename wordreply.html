@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wordReply</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <form v-on:submit="onSubmit">
+            <div>{{word}}</div>
+            <input type="text" v-model="value" ref="answer">
+            <input type="submit">
+            <div>{{result}}</div>
+        </form>
+    </div>
+    <script>
+        const app = new Vue({
+            el: "#root",
+            data: {
+                word: "구절초",
+                value: "",
+                result: ""
+            },
+            methods: {
+                onSubmit(e) {
+                    e.preventDefault()
+                    if (this.word[this.word.length - 1] === this.value[0]) {
+                        this.result = "정답!"
+                        this.word = this.value;
+                        this.value = "";
+                        this.$refs.answer.focus();
+                    } else {
+                        this.value = ""
+                        this.result = "땡!"
+                        this.$refs.answer.fucus();
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
