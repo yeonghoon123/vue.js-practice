@@ -50,6 +50,87 @@ const app = new Vue({
 
 <br>
 
+# 구구단 만들기
+
+<img src="./gitImages/캡처.png">
+<br>
+
+```javascript
+const app = new Vue({
+            el: "#root",
+            data: {
+                first: Math.ceil(Math.random() * 9),
+                second: Math.ceil(Math.random() * 9),
+                value: '',
+                result: ''
+            },
+            methods: {
+                onSubmit(e) {
+                    e.preventDefault()
+                    if (this.first * this.second === +this.value) {
+                        this.result = "정답";
+                        this.value = "";
+                        this.first = Math.ceil(Math.random() * 9);
+                        this.second = Math.ceil(Math.random() * 9);
+                        this.$refs.answer.focus();
+                    } else {
+                        this.value = "";
+                        this.result = "땡!"
+                        this.$refs.answer.focus();
+                    }
+                }
+
+            }
+        })
+
+```
+# 끝말잇기
+
+<img src="./gitImages/끝말잇기.png">
+<br>
+<br>
+
+```javascript
+const app = new Vue({
+            el: "#root",
+            data: {
+                word: "구절초",
+                value: "",
+                result: ""
+            },
+            methods: {
+                onSubmit(e) {
+                    e.preventDefault()
+                    if (this.word[this.word.length - 1] === this.value[0]) {
+                        this.result = "정답!"
+                        this.word = this.value;
+                        this.value = "";
+                        this.$refs.answer.focus();
+                    } else {
+                        this.value = ""
+                        this.result = "땡!"
+                        this.$refs.answer.fucus();
+                    }
+                }
+            }
+        })
+```
+
+
+
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
 # Vue.js를 배운후 느낀점
 React.js를 먼저 배워서 그런지 React.js보다 더 뛰어난 프레임워크라 보기는 어려웠다.
 
