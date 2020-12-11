@@ -47,12 +47,20 @@ const app = new Vue({
 ```
 이런형식으로 사용된다. (이코드는 구구단 이다.)
 
+<br>
+
+## CreateVueApp
+
+
+```javascript
+yarn global add @vue/cli @vue/cli-service-global
+```
 
 <br>
 
 # 구구단 만들기
 
-<img src="./gitImages/캡처.png">
+<img src="./gitImages/캡처.PNG">
 <br>
 
 ```javascript
@@ -86,7 +94,7 @@ const app = new Vue({
 ```
 # 끝말잇기
 
-<img src="./gitImages/끝말잇기.png">
+<img src="./gitImages/끝말잇기.PNG">
 <br>
 <br>
 
